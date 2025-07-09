@@ -5,12 +5,27 @@ import numpy as np
 import cv2
 import pandas as pd
 from PIL import Image, ImageEnhance, ImageFilter
-import pytesseract
+
 import tkinter as tk
 from tkinter import filedialog, messagebox
 
-# Optional: Tesseract path
-pytesseract.pytesseract.tesseract_cmd = r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+import pytesseract
+import os
+
+# Try current directory first
+local_tesseract = os.path.join(os.getcwd(), "tesseract.exe")
+
+# Default install path (e.g., for Windows)
+default_tesseract = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+# Choose which one exists
+if os.path.isfile(local_tesseract):
+    pytesseract.pytesseract.tesseract_cmd = local_tesseract
+elif os.path.isfile(default_tesseract):
+    pytesseract.pytesseract.tesseract_cmd = default_tesseract
+else:
+    raise FileNotFoundError("Tesseract executable not found in current directory or default path.")
+
 
 # --- OCR helpers from original script ---
 
