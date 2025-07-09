@@ -1,0 +1,7 @@
+Projekt 1 Daten auslesen aus Grundpumpentabellen
+
+GUI - myOCR_handle_250bar_mit_datum_zeit_getrennt.py
+
+1. Ordner bestimmen wo die Grunddatenbilder (files) liegen
+2. Ordner bestimmen wo die Excel-File mit den gelesenen Daten gespeichert wird
+
